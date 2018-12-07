@@ -4,11 +4,11 @@ import { withStyles } from "@material-ui/core/styles";
 import { styles } from "./TopBarStyles";
 
 const TopBar = ({ classes }) => {
-  return (
-    <AppBar className={classes.root}>
-      <div className={classes.searchField}>Hallo</div>
-    </AppBar>
-  );
+    return (
+        <AppBar className={classes.root}>
+            <div className={classes.searchField}>Hallo</div>
+        </AppBar>
+    );
 };
 
 export default withStyles(styles)(TopBar);
