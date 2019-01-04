@@ -1,42 +1,78 @@
+const drawerWidth = 300;
+
 export const styles = theme => ({
-    appBar: {
-        height: "100vh",
-        width: "60px",
-        left: 0,
-        backgroundColor: "white",
+    root: {
+        display: 'flex'
     },
-    toolBar: {
-        backgroundColor: "white",
-        textAlign: "center",
-        position: "relative",
-        zIndex: 1210,
-        display: "block",
-        height: "100vh",
-        width: "60px",
-        padding: 0,
+    appBar: {
+        zIndex: theme.zIndex.drawer + 1,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+        })
+    },
+    appBarShift: {
+        marginLeft: drawerWidth,
+        width: `calc(100% - ${drawerWidth}px)`,
+        transition: theme.transitions.create(['width', 'margin'], {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen
+        })
     },
     menuButton: {
-        width: "60px",
-        height: "60px",
+        marginLeft: 12,
+        marginRight: 36
     },
-    menuButtonIcon: {
-        color: "black",
+    hide: {
+        display: 'none'
     },
-    menuButtonTextWrapper: {
-        flex: "1 1 auto",
-        padding: "0 16px",
-        minWidth: "0",
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+        whiteSpace: 'nowrap'
     },
-    menuButtonText: {
-        margin: 0,
-        display: "block",
-        color: "black",
+    drawerOpen: {
+        width: drawerWidth,
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.enteringScreen
+        })
     },
-    drawerHeader: {
-        display: "flex",
-        alignItems: "center",
+    drawerClose: {
+        transition: theme.transitions.create('width', {
+            easing: theme.transitions.easing.sharp,
+            duration: theme.transitions.duration.leavingScreen
+        }),
+        overflowX: 'hidden',
+        width: 60
+    },
+    toolbar: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        flexDirection: "column",
+        padding: '0',
+        minHeight: "60px"
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing.unit * 3,
     },
     listItem: {
-        padding: "16px",
+        padding: "11px 16px",
+        height: "60px"
     },
+    listItemImage: {
+        padding: "10px",
+        height: "60px"
+    },
+    listItemImageText: {
+        paddingLeft: "6px"
+    },
+    image: {
+        width: '40px',
+        height: '40px',
+        display: 'inline-block',
+        borderRadius: "50%"
+    }
 });
